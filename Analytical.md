@@ -1,14 +1,14 @@
-#Data Analytics in R
+# Data Analytics in R
 
 *portfolio of the data science projects in R*
 
-##Project 1 : Analytical Detective
+## Project 1 : Analytical Detective
 
 *Crime is an international concern, but it is documented and handled in very different ways in different countries. In the United States, violent crimes and property crimes are recorded by the Federal Bureau of Investigation (FBI). Additionally, each city documents crime, and some cities release data regarding crime rates. The city of Chicago, Illinois releases crimedata from 2001 onward online. Chicago is the third most populous city in the United States, with a population of over 2.7 million people. The city of Chicago is shown in the map below, with the state of Illinois highlighted in red.*
 ![alt text](https://courses.edx.org/assets/courseware/v1/1026b5e44d7529313194b5029a538061/asset-v1:MITx+15.071x+2T2020+type@asset+block/ChicagoMap.png)
 *There are two main types of crimes: violent crimes, and property crimes. In this problem, we'll focus on one specific type of property crime, called "motor vehicle theft" (sometimes referred to as grand theft auto). This is the act of stealing, or attempting to steal, a car. In this problem, we'll use some basic data analysis in R to understand the motor vehicle thefts in Chicago.*
 
-###1-Loading the Data
+### 1-Loading the Data
 
 Reading Data in R :
 
@@ -26,7 +26,7 @@ The number of crimes for which an arrest was made :
 15536
 The number of the crime in the location "ALLEY":
 2308
-###2- Dates conversion and processing :
+### 2- Dates conversion and processing :
 In many datasets, like this one, you have a date field. Unfortunately, R does not automatically recognize entries that look like dates. We need to use a function in R to extract the date and time. Take a look at the first entry of Date (remember to use square brackets when looking at a certain entry of a variable).
 Fomrat of the dates :
 Month/Day/Year Hour:Minute
@@ -45,7 +45,7 @@ Friday
 
 Which month has the largest number of motor vehicle thefts for which an arrest was made?
 January
-###3-Data Visualization :
+### 3-Data Visualization :
 Now, let's make some plots to help us better understand how crime has changed over time in Chicago.
 First, let's make a histogram of the variable Date
 ![alt text](https://um6p-my.sharepoint.com/personal/zakarya_jouhafa_emines_um6p_ma/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1%2FhistMotor%2Epng&parent=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1)
@@ -68,7 +68,7 @@ Examples :
     The proportion for motor vehicle thefts in 2001 was an arrest made: 0.1041173
     The proportion of motor vehicle thefts in 2007 was an arrest made:  0.08487395
     The proportion of motor vehicle thefts in 2012 was an arrest made:  0.03902924
-###4-Data Analytics :
+### 4-Data Analytics :
 Analyzing this data could be useful to the Chicago Police Department when deciding where to allocate resources. If they want to increase the number of arrests that are made for motor vehicle thefts, where should they focus their efforts?
 We want to find the top five locations where motor vehicle thefts occur. If you create a table of the LocationDescription variable, it is unfortunately very hard to read since there are 78 different locations in the data set.
 The top five locations for motor vehicle thefts :
