@@ -61,7 +61,7 @@ Now we can answer questions like :
 
 February
 
-On which weekday did the most motor vehicle thefts occur?
+- On which weekday did the most motor vehicle thefts occur?
 
 Friday
 
@@ -96,28 +96,44 @@ Now, let's see how arrests have changed over time.
 
 To do this we plot a boxplot of the variable "Date", sorted by the variable "Arrest"
 In a boxplot, the bold horizontal line is the median value of the data, the box shows the range of values between the first quartile and third quartile, and the whiskers (the dotted lines extending outside the box) show the minimum and maximum values, excluding any outliers (which are plotted as circles). Outliers are defined by first computing the difference between the first and third quartile values, or the height of the box. This number is called the Inter-Quartile Range (IQR). Any point that is greater than the third quartile plus the IQR or less than the first quartile minus the IQR is considered an outlier.
+
 ![alt text](https://um6p-my.sharepoint.com/personal/zakarya_jouhafa_emines_um6p_ma/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1%2FboxplotMotor%2Epng&parent=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1)
+
 So thanks it this boxplot we can notice for example that there were more crimes for which arrests were made in the first half of the time period
 
 
 Data visualization can also be done by calculating the porpotions 
+
 Examples :
+
     The proportion for motor vehicle thefts in 2001 was an arrest made: 0.1041173
     The proportion of motor vehicle thefts in 2007 was an arrest made:  0.08487395
     The proportion of motor vehicle thefts in 2012 was an arrest made:  0.03902924
+
 ### 4-Data Analytics :
+
 Analyzing this data could be useful to the Chicago Police Department when deciding where to allocate resources. If they want to increase the number of arrests that are made for motor vehicle thefts, where should they focus their efforts?
+
 We want to find the top five locations where motor vehicle thefts occur. If you create a table of the LocationDescription variable, it is unfortunately very hard to read since there are 78 different locations in the data set.
+
 The top five locations for motor vehicle thefts :
+
 - Street
 - Alley
 - Gas station 
 - Driveway
 - Parking lot
+
 We observe that only in these 5 locations we find 177510 crime which make 92.6% of our dataset
+
 the locations has a much higher arrest rate than the other locations :
-Gas Station
+
+- Gas Station
+
 Day of the week where the most motor vehicle thefts at gas stations happen:
-Saturday
+
+- Saturday
+
 Day of the week where the most motor vehicle thefts at driveways happen:
-Saturday
+
+- Saturday
