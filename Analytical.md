@@ -1,15 +1,22 @@
 #Data Analytics in R
+
 *portfolio of the data science projects in R*
+
 ##Project 1 : Analytical Detective
+
 *Crime is an international concern, but it is documented and handled in very different ways in different countries. In the United States, violent crimes and property crimes are recorded by the Federal Bureau of Investigation (FBI). Additionally, each city documents crime, and some cities release data regarding crime rates. The city of Chicago, Illinois releases crimedata from 2001 onward online. Chicago is the third most populous city in the United States, with a population of over 2.7 million people. The city of Chicago is shown in the map below, with the state of Illinois highlighted in red.*
 ![alt text](https://courses.edx.org/assets/courseware/v1/1026b5e44d7529313194b5029a538061/asset-v1:MITx+15.071x+2T2020+type@asset+block/ChicagoMap.png)
 *There are two main types of crimes: violent crimes, and property crimes. In this problem, we'll focus on one specific type of property crime, called "motor vehicle theft" (sometimes referred to as grand theft auto). This is the act of stealing, or attempting to steal, a car. In this problem, we'll use some basic data analysis in R to understand the motor vehicle thefts in Chicago.*
+
 ###1-Loading the Data
+
 Reading Data in R :
+
 ```R
 Motor = read.csv("mvtWeek1.csv") 
 ``` 
 Size of the dataset :
+
 191641 observations of 11 variables
 Max value of the variable "ID" :
 9181151
