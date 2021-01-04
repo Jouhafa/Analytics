@@ -17,23 +17,23 @@ Motor = read.csv("mvtWeek1.csv")
 ``` 
 Size of the dataset :
 
-191641 observations of 11 variables
+- 191641 observations of 11 variables
 
 Max value of the variable "ID" :
 
-9181151
+- 9181151
 
 Minimum value of the variable "Beat" :
 
-111
+- 111
 
 The number of crimes for which an arrest was made :
 
-15536
+- 15536
 
 The number of the crime in the location "ALLEY":
 
-2308
+- 2308
 
 ### 2- Dates conversion and processing :
 
@@ -41,29 +41,31 @@ In many datasets, like this one, you have a date field. Unfortunately, R does no
 
 Fomrat of the dates :
 
-Month/Day/Year Hour:Minute
+- Month/Day/Year Hour:Minute
 
 Now, let's convert these characters into a Date object in R using the function :
+```R
 
 y = as.Date(strptime(x, "%m/%d/%y %H:%M"))
+```
 
 This converts the variable "Date" into a Date object in R, so we can easily exract the information of dates
 
 Like the month and year of the median date in our dataset:
 
-2006-05-21
+- 2006-05-21
 
 We can also extract the month and the day of the week, and add these variables to our data frame
 
 Now we can answer questions like :
 
-- In which month did the fewest motor vehicle thefts occur?
+In which month did the fewest motor vehicle thefts occur?
 
-February
+- February
 
-- On which weekday did the most motor vehicle thefts occur?
+On which weekday did the most motor vehicle thefts occur?
 
-Friday
+- Friday
 
 
 Which month has the largest number of motor vehicle thefts for which an arrest was made?
