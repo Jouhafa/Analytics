@@ -18,45 +18,82 @@ Motor = read.csv("mvtWeek1.csv")
 Size of the dataset :
 
 191641 observations of 11 variables
+
 Max value of the variable "ID" :
+
 9181151
+
 Minimum value of the variable "Beat" :
+
 111
+
 The number of crimes for which an arrest was made :
+
 15536
+
 The number of the crime in the location "ALLEY":
+
 2308
+
 ### 2- Dates conversion and processing :
+
 In many datasets, like this one, you have a date field. Unfortunately, R does not automatically recognize entries that look like dates. We need to use a function in R to extract the date and time. Take a look at the first entry of Date (remember to use square brackets when looking at a certain entry of a variable).
+
 Fomrat of the dates :
+
 Month/Day/Year Hour:Minute
+
 Now, let's convert these characters into a Date object in R using the function :
+
 y = as.Date(strptime(x, "%m/%d/%y %H:%M"))
+
 This converts the variable "Date" into a Date object in R, so we can easily exract the information of dates
+
 Like the month and year of the median date in our dataset:
+
 2006-05-21
+
 We can also extract the month and the day of the week, and add these variables to our data frame
+
 Now we can answer questions like :
+
 - In which month did the fewest motor vehicle thefts occur?
+
 February
+
 On which weekday did the most motor vehicle thefts occur?
+
 Friday
 
 
 Which month has the largest number of motor vehicle thefts for which an arrest was made?
+
 January
+
 ### 3-Data Visualization :
+
 Now, let's make some plots to help us better understand how crime has changed over time in Chicago.
+
 First, let's make a histogram of the variable Date
+
 ![alt text](https://um6p-my.sharepoint.com/personal/zakarya_jouhafa_emines_um6p_ma/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1%2FhistMotor%2Epng&parent=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1)
+
 This histogram will help us answer a lot of question, for instance :
+
 In general, does it look like crime increases or decreases from 2002 - 2012?
+
  - Decreases 
+
 In general, does it look like crime increases or decreases from 2005 - 2008?
+
  - Decreases 
+
 In general, does it look like crime increases or decreases from 2009 - 2011?
+
  - Increases 
+
 Now, let's see how arrests have changed over time.
+
 To do this we plot a boxplot of the variable "Date", sorted by the variable "Arrest"
 In a boxplot, the bold horizontal line is the median value of the data, the box shows the range of values between the first quartile and third quartile, and the whiskers (the dotted lines extending outside the box) show the minimum and maximum values, excluding any outliers (which are plotted as circles). Outliers are defined by first computing the difference between the first and third quartile values, or the height of the box. This number is called the Inter-Quartile Range (IQR). Any point that is greater than the third quartile plus the IQR or less than the first quartile minus the IQR is considered an outlier.
 ![alt text](https://um6p-my.sharepoint.com/personal/zakarya_jouhafa_emines_um6p_ma/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1%2FboxplotMotor%2Epng&parent=%2Fpersonal%2Fzakarya%5Fjouhafa%5Femines%5Fum6p%5Fma%2FDocuments%2FEMINES%2FAnalytics%20edge%2Fedx%5Fcourse%2FUnit1)
