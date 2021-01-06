@@ -33,20 +33,20 @@ CFC.11 and CFC.12 are expressed in ppbv (parts per billion by volume).
 
 To do this, first we need to read the dataset climate_change.csv into R.
 ```R
-Climate=read.csv("climate_change.csv")
+Climate = read.csv("climate_change.csv")
 ```
 
 Then, we split the data into a training set, consisting of all the observations up to and including 2006, and a testing set consisting of the remaining year. A training set refers to the data that will be used to build the model (this is the data we give to the lm() function), and a testing set refers to the data we will use to test our predictive ability.
 
 ```R
-train=subset(Climate, Climate$Year<=2006)
-test=subset(Climate, Climate$Yea>2006)
+train = subset(Climate, Climate$Year<=2006)
+test = subset(Climate, Climate$Yea>2006)
 ```
 Next, we build a linear regression model to predict the dependent variable Temp, using MEI, CO2, CH4, N2O, CFC.11, CFC.12, TSI, and Aerosols as independent variables (Year and Month should NOT be used in the model). 
 
 we use the training set to build the model.
 ```R
-Model=lm(Temp ~ MEI + CO2 + CH4 + N2O + CFC.11 + CFC.12 + TSI + Aerosols, data = train)
+Model = lm(Temp ~ MEI + CO2 + CH4 + N2O + CFC.11 + CFC.12 + TSI + Aerosols, data = train)
 ````
 
 we can evaluate our model by checking the R2 (the "Multiple R-squared" value).
@@ -80,7 +80,7 @@ Given that the correlations are so high, let us focus on the N2O variable and bu
 We will always keep working with the training set to build the model.
 
 ```R
-Model_simplified=lm(Temp ~ MEI+ N2O  + TSI + Aerosols, data = train)
+Model_simplified = lm(Temp ~ MEI + N2O  + TSI + Aerosols, data = train)
 summary(Model_simplified)
 ```
 
@@ -109,9 +109,9 @@ We have developed an understanding of how well we can fit a linear regression to
 Using the model produced from the step function, calculate temperature predictions for the testing data set, using the predict function.
 
 ```R 
-Model_auto=step(Model)
+Model_auto = step(Model)
 summary(Model_auto)
-Temp_Pred=predict(Model_auto, newdata = test)
+Temp_Pred = predict(Model_auto, newdata = test)
 SSE = sum((Temp_Pred - test$Temp)^2)
 SST = sum((mean(train$Temp) - test$Temp)^2)
 R2 = 1 - SSE/SST
@@ -119,7 +119,7 @@ R2 = 1 - SSE/SST
 
 the testing set R2 : 0.6286
 
-so our model did pretty good 
+**So our model did pretty good **
 
 
 
