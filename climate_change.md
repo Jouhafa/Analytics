@@ -49,6 +49,81 @@ we use the training set to build the model.
 Model=lm(Temp ~ MEI + CO2 + CH4 + N2O + CFC.11 + CFC.12 + TSI + Aerosols, data = train)
 ````
 
+we can evaluate our model by checking the R2 (the "Multiple R-squared" value).
+
+we get access to this value using the summary function.
+```R
+summary(lmModel)
+```
+Now let's check if the variables that we used to build our model are all significants or if exist some that not.
+
+To do this we need to check the correlation between these variables and Temp. And we will consider a variable signficant only if the p-value is below 0.05. 
+
+```R
+cor(train)
+```
+
+After executing it we notice that CH4 and N2O are not really significant for our model.
+
+## Understanding the Model : 
+
+Current scientific opinion is that nitrous oxide and CFC-11 are greenhouse gases: gases that are able to trap heat from the sun and contribute to the heating of the Earth. However, the regression coefficients of both the N2O and CFC-11 variables are negative, indicating that increasing atmospheric concentrations of either of these two compounds is associated with lower global temperatures.
+
+And the simplest explanation for this contradiction is : All of the gas concentration variables reflect human development - N2O and CFC.11 are correlated with other variables in the data set.
+
+We can understand more our model by looking in the correlations between all the variables in the dataset.
+
+## Simplifying the Model :
+
+Given that the correlations are so high, let us focus on the N2O variable and build a model with only MEI, TSI, Aerosols and N2O as independent variables. 
+
+We will always keep working with the training set to build the model.
+
+```R
+Model_simplified=lm(Temp ~ MEI+ N2O  + TSI + Aerosols, data = train)
+summary(Model_simplified)
+```
+
+We can get again the coefficient for N2O and the model R-squared using summary(L).
+
+We have observed that, for this problem, when we remove many variables the sign of N2O flips. The model has not lost a lot of explanatory power (the model R2 is 0.7261 compared to 0.7509 previously) despite removing many variables. As discussed in lecture, this type of behavior is typical when building a model where many of the independent variables are highly correlated with each other. In this particular problem many of the variables (CO2, CH4, N2O, CFC.11 and CFC.12) are highly correlated, since they are all driven by human industrial development.
+
+## Automatically Building the Model :
+
+We have many variables in this problem, and as we have seen above, dropping some from the model does not decrease model quality. R provides a function, step, that will automate the procedure of trying different combinations of variables to find a good compromise of model simplicity and R2. This trade-off is formalized by the Akaike information criterion (AIC) - it can be informally thought of as the quality of the model with a penalty for the number of variables in the model.
+
+The step function has one argument - the name of the initial model. It returns a simplified model. Using the step function in R to derive a new model, with the full model as the initial model.
+
+For more information about the step function, type ?step in R console.
+
+the R2 value of the model produced by the step function: 0.7508
+
+we obsereve also that the variable CH4 was eliminated.
+
+It is interesting to note that the step function does not address the collinearity of the variables, except that adding highly correlated variables will not improve the R2 significantly. The consequence of this is that the step function will not necessarily produce a very interpretable model - just a model that has balanced quality and simplicity for a particular weighting of quality and simplicity (AIC).
+
+## Testing on Unseen Data : 
+
+We have developed an understanding of how well we can fit a linear regression to the training data, but does the model quality hold when applied to unseen data?
+
+Using the model produced from the step function, calculate temperature predictions for the testing data set, using the predict function.
+
+```R 
+Model_auto=step(Model)
+summary(Model_auto)
+Temp_Pred=predict(Model_auto, newdata = test)
+SSE = sum((Temp_Pred - test$Temp)^2)
+SST = sum((mean(train$Temp) - test$Temp)^2)
+R2 = 1 - SSE/SST
+``` 
+
+the testing set R2 : 0.6286
+
+so our model did pretty good 
+
+
+
+
 
 
 
